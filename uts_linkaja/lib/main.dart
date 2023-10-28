@@ -13,13 +13,98 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: ThemeData(primaryColor: Colors.white),
       home: Scaffold(
-        body: Container(
-          color: Colors.white,
-          child: Column(
-            children: [
-              Container(
-                margin: const EdgeInsets.only(top: 40, left: 20, right: 20),
-                child: Row(
+        floatingActionButton: FloatingActionButton(
+          child: Image.network(
+              'https://astrapay.com/static-assets/images/qris/icon/icon_scan_qris.png'), // Replace with the URL of the image you want to display
+          onPressed: () {},
+        ),
+        floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+        bottomNavigationBar: BottomAppBar(
+          shape: CircularNotchedRectangle(),
+          notchMargin: 10,
+          child: Container(
+            height: 60,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: <Widget>[
+                Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    MaterialButton(
+                      minWidth: 40,
+                      onPressed: () {},
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Icon(Icons.home, color: Colors.red),
+                          Text(
+                            'Home',
+                            style: TextStyle(color: Colors.red),
+                          )
+                        ],
+                      ),
+                    ),
+                    MaterialButton(
+                      minWidth: 40,
+                      onPressed: () {},
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Icon(Icons.fact_check_outlined, color: Colors.red),
+                          Text(
+                            'History',
+                            style: TextStyle(color: Colors.red),
+                          )
+                        ],
+                      ),
+                    )
+                  ],
+                ),
+                Row(
+                  // Right Row
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    MaterialButton(
+                      minWidth: 40,
+                      onPressed: () {},
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Icon(Icons.inbox_outlined, color: Colors.red),
+                          Text(
+                            'Inbox',
+                            style: TextStyle(color: Colors.red),
+                          )
+                        ],
+                      ),
+                    ),
+                    MaterialButton(
+                      minWidth: 40,
+                      onPressed: () {},
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Icon(Icons.perm_identity, color: Colors.red),
+                          Text(
+                            'Profile',
+                            style: TextStyle(color: Colors.red),
+                          )
+                        ],
+                      ),
+                    )
+                  ],
+                ),
+              ],
+            ),
+          ),
+        ),
+        body: SingleChildScrollView(
+          child: Container(
+            color: Colors.white,
+            margin: const EdgeInsets.only(top: 40, left: 20, right: 20),
+            child: Column(
+              children: [
+                Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Image.network(
@@ -44,84 +129,82 @@ class MyApp extends StatelessWidget {
                     ),
                   ],
                 ),
-              ),
-              Container(
-                width: 380,
-                height: 180,
-                margin: EdgeInsets.only(top: 30),
-                child: Card(
-                  elevation: 2,
-                  color: Colors.redAccent,
-                  child: Padding(
-                    padding:
-                        EdgeInsets.all(16.0), // Adjust the padding as needed
-                    child: Column(
-                      children: [
-                        Align(
-                          alignment: AlignmentDirectional.topStart,
-                          child: Text(
-                            'Hi, M. Rafy Shah Pahlevi',
-                            style: TextStyle(fontSize: 20, color: Colors.white),
+                Container(
+                  width: 380,
+                  height: 180,
+                  margin: EdgeInsets.only(top: 30),
+                  child: Card(
+                    elevation: 2,
+                    color: Colors.redAccent,
+                    child: Padding(
+                      padding: EdgeInsets.all(16.0),
+                      child: Column(
+                        children: [
+                          Align(
+                            alignment: AlignmentDirectional.topStart,
+                            child: Text(
+                              'Hi, M. Rafy Shah Pahlevi',
+                              style:
+                                  TextStyle(fontSize: 20, color: Colors.white),
+                            ),
                           ),
-                        ),
-                        Row(
-                          children: [
-                            Container(
-                              width: 150,
-                              height: 70,
-                              margin: EdgeInsets.only(top: 50),
-                              child: Card(
-                                elevation: 2,
-                                color: Colors.white,
-                                child: Padding(
-                                  padding: EdgeInsets.all(16.0),
-                                  child: Expanded(
-                                    child: Align(
-                                      alignment: Alignment.bottomLeft,
-                                      child: Text(
-                                        'Your Balance',
-                                        style: TextStyle(
-                                            fontSize: 15, color: Colors.black),
+                          SizedBox(height: 20),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Expanded(
+                                child: Container(
+                                  height: 70,
+                                  child: Card(
+                                    elevation: 2,
+                                    color: Colors.white,
+                                    child: Padding(
+                                      padding: EdgeInsets.all(16.0),
+                                      child: Align(
+                                        alignment: Alignment.bottomLeft,
+                                        child: Text(
+                                          'Your Balance',
+                                          style: TextStyle(
+                                              fontSize: 15,
+                                              color: Colors.black),
+                                        ),
                                       ),
                                     ),
                                   ),
                                 ),
                               ),
-                            ),
-                            Container(
-                              width: 150,
-                              height: 70,
-                              margin: EdgeInsets.only(left: 30, top: 50),
-                              child: Card(
-                                elevation: 2,
-                                color: Colors.white,
-                                child: Padding(
-                                  padding: EdgeInsets.all(16.0),
-                                  child: Align(
-                                    alignment: AlignmentDirectional.topStart,
-                                    child: Text(
-                                      'Bonus Balance',
-                                      style: TextStyle(
-                                          fontSize: 15, color: Colors.black),
+                              SizedBox(width: 20),
+                              Expanded(
+                                child: Container(
+                                  height: 70,
+                                  child: Card(
+                                    elevation: 2,
+                                    color: Colors.white,
+                                    child: Padding(
+                                      padding: EdgeInsets.all(16.0),
+                                      child: Align(
+                                        alignment:
+                                            AlignmentDirectional.topStart,
+                                        child: Text(
+                                          'Bonus Balance',
+                                          style: TextStyle(
+                                              fontSize: 15,
+                                              color: Colors.black),
+                                        ),
+                                      ),
                                     ),
                                   ),
                                 ),
                               ),
-                            ),
-                            SizedBox(width: 50),
-                            Expanded(
-                              child: Container(
-                                  // Add additional properties for width, height, margin, etc. as needed
-                                  ),
-                            ),
-                          ],
-                        )
-                      ],
+                            ],
+                          ),
+                        ],
+                      ),
                     ),
                   ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         ),
       ),
