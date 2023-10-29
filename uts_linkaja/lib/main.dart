@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'history.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 void main() {
   runApp(const MyApp());
@@ -129,80 +131,201 @@ class MyApp extends StatelessWidget {
                     ),
                   ],
                 ),
-                Container(
-                  width: 380,
-                  height: 180,
-                  margin: EdgeInsets.only(top: 30),
-                  child: Card(
-                    elevation: 2,
-                    color: Colors.redAccent,
-                    child: Padding(
-                      padding: EdgeInsets.all(16.0),
-                      child: Column(
-                        children: [
-                          Align(
-                            alignment: AlignmentDirectional.topStart,
-                            child: Text(
-                              'Hi, M. Rafy Shah Pahlevi',
-                              style:
-                                  TextStyle(fontSize: 20, color: Colors.white),
+                Column(
+                  children: [
+                    Padding(
+                      padding:
+                          const EdgeInsets.only(left: 7, right: 7, top: 25),
+                      child: Container(
+                        height: 132,
+                        decoration: BoxDecoration(
+                          color: Colors.red,
+                          borderRadius: BorderRadius.circular(15),
+                        ),
+                        child: Row(
+                          children: [
+                            SizedBox(
+                              height: 5,
                             ),
-                          ),
-                          SizedBox(height: 20),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            Padding(
+                              padding: const EdgeInsets.only(
+                                  left: 7, right: 7, top: 25),
+                              child: Container(
+                                height: 68,
+                                width: 127,
+                                decoration: BoxDecoration(
+                                  color: Colors.white,
+                                  borderRadius: BorderRadius.vertical(
+                                    top: Radius.circular(7),
+                                    bottom: Radius.circular(7),
+                                  ),
+                                ),
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  mainAxisAlignment: MainAxisAlignment.end,
+                                  children: [
+                                    Padding(
+                                      padding:
+                                          EdgeInsets.only(left: 10, bottom: 5),
+                                      // Adjust the left padding in pixels
+                                      child: Text(
+                                        'Your Balance',
+                                        textAlign: TextAlign.left,
+                                      ),
+                                    ),
+                                    Padding(
+                                      padding: EdgeInsets.only(
+                                          left: 10,
+                                          bottom:
+                                              7), // Adjust the left padding in pixels
+                                      child: Text(
+                                        'Rp 1.000',
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.only(
+                                  left: 7, right: 7, top: 25),
+                              child: Container(
+                                height: 68,
+                                width: 127,
+                                decoration: BoxDecoration(
+                                  color: Colors.white,
+                                  borderRadius: BorderRadius.vertical(
+                                    top: Radius.circular(7),
+                                    bottom: Radius.circular(7),
+                                  ),
+                                ),
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  mainAxisAlignment: MainAxisAlignment.end,
+                                  children: [
+                                    Padding(
+                                      padding:
+                                          EdgeInsets.only(left: 10, bottom: 5),
+                                      // Adjust the left padding in pixels
+                                      child: Text(
+                                        'Bonus Balance',
+                                        textAlign: TextAlign.left,
+                                      ),
+                                    ),
+                                    Padding(
+                                      padding: EdgeInsets.only(
+                                          left: 10,
+                                          bottom:
+                                              7), // Adjust the left padding in pixels
+                                      child: Text(
+                                        '0',
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+                Container(
+                  margin:
+                      const EdgeInsets.symmetric(vertical: 20, horizontal: 16),
+                  padding: const EdgeInsets.all(6),
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    border: Border.all(
+                      color: Colors.grey,
+                      width: 1,
+                    ),
+                    borderRadius: BorderRadius.circular(10.0),
+                  ),
+                  child: const Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      MenuWidget(
+                        icon: FontAwesomeIcons.solidCreditCard,
+                        title: 'Top Up',
+                      ),
+                      MenuWidget(
+                        icon: FontAwesomeIcons.moneyBillTransfer,
+                        title: 'Send Money',
+                      ),
+                      MenuWidget(
+                        icon: FontAwesomeIcons.moneyBill1Wave,
+                        title: 'Ticket Code',
+                      ),
+                      MenuWidget(
+                        icon: FontAwesomeIcons.solidCommentDots,
+                        title: 'See All',
+                      ),
+                    ],
+                  ),
+                ),
+                Container(
+                  child: Padding(
+                    padding: EdgeInsets.only(left: 10, right: 10, top: 1),
+                    child: SizedBox(
+                      height: 157,
+                      child: GridView.count(
+                        crossAxisCount: 4,
+                        children: [
+                          Column(
                             children: [
-                              Expanded(
-                                child: Container(
-                                  height: 70,
-                                  child: Card(
-                                    elevation: 2,
-                                    color: Colors.white,
-                                    child: Padding(
-                                      padding: EdgeInsets.all(16.0),
-                                      child: Align(
-                                        alignment: Alignment.bottomLeft,
-                                        child: Text(
-                                          'Your Balance',
-                                          style: TextStyle(
-                                              fontSize: 15,
-                                              color: Colors.black),
-                                        ),
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                              ),
-                              SizedBox(width: 20),
-                              Expanded(
-                                child: Container(
-                                  height: 70,
-                                  child: Card(
-                                    elevation: 2,
-                                    color: Colors.white,
-                                    child: Padding(
-                                      padding: EdgeInsets.all(16.0),
-                                      child: Align(
-                                        alignment:
-                                            AlignmentDirectional.topStart,
-                                        child: Text(
-                                          'Bonus Balance',
-                                          style: TextStyle(
-                                              fontSize: 15,
-                                              color: Colors.black),
-                                        ),
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                              ),
+                              Icon(FontAwesomeIcons.star),
+                              Text("Icon 1"),
+                            ],
+                          ),
+                          Column(
+                            children: [
+                              Icon(FontAwesomeIcons.heart),
+                              Text("Icon 2"),
+                            ],
+                          ),
+                          Column(
+                            children: [
+                              Icon(FontAwesomeIcons.circle),
+                              Text("Icon 3"),
+                            ],
+                          ),
+                          Column(
+                            children: [
+                              Icon(FontAwesomeIcons.circle),
+                              Text("Icon 3"),
+                            ],
+                          ),
+                          Column(
+                            children: [
+                              Icon(FontAwesomeIcons.circle),
+                              Text("Icon 3"),
+                            ],
+                          ),
+                          Column(
+                            children: [
+                              Icon(FontAwesomeIcons.circle),
+                              Text("Icon 3"),
+                            ],
+                          ),
+                          Column(
+                            children: [
+                              Icon(FontAwesomeIcons.circle),
+                              Text("Icon 3"),
+                            ],
+                          ),
+                          Column(
+                            children: [
+                              Icon(FontAwesomeIcons.circle),
+                              Text("More"),
                             ],
                           ),
                         ],
                       ),
                     ),
                   ),
-                ),
+                )
               ],
             ),
           ),
@@ -212,90 +335,34 @@ class MyApp extends StatelessWidget {
   }
 }
 
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
-
-  // This widget is the home page of your application. It is stateful, meaning
-  // that it has a State object (defined below) that contains fields that affect
-  // how it looks.
-
-  // This class is the configuration for the state. It holds the values (in this
-  // case the title) provided by the parent (in this case the App widget) and
-  // used by the build method of the State. Fields in a Widget subclass are
-  // always marked "final".
-
+class MenuWidget extends StatelessWidget {
+  final IconData icon;
   final String title;
-
-  @override
-  State<MyHomePage> createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      // This call to setState tells the Flutter framework that something has
-      // changed in this State, which causes it to rerun the build method below
-      // so that the display can reflect the updated values. If we changed
-      // _counter without calling setState(), then the build method would not be
-      // called again, and so nothing would appear to happen.
-      _counter++;
-    });
-  }
+  const MenuWidget({
+    super.key,
+    required this.icon,
+    required this.title,
+  });
 
   @override
   Widget build(BuildContext context) {
-    // This method is rerun every time setState is called, for instance as done
-    // by the _incrementCounter method above.
-    //
-    // The Flutter framework has been optimized to make rerunning build methods
-    // fast, so that you can just rebuild anything that needs updating rather
-    // than having to individually change instances of widgets.
-    return Scaffold(
-      appBar: AppBar(
-        // TRY THIS: Try changing the color here to a specific color (to
-        // Colors.amber, perhaps?) and trigger a hot reload to see the AppBar
-        // change color while the other colors stay the same.
-        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        // Here we take the value from the MyHomePage object that was created by
-        // the App.build method, and use it to set our appbar title.
-        title: Text(widget.title),
-      ),
-      body: Center(
-        // Center is a layout widget. It takes a single child and positions it
-        // in the middle of the parent.
-        child: Column(
-          // Column is also a layout widget. It takes a list of children and
-          // arranges them vertically. By default, it sizes itself to fit its
-          // children horizontally, and tries to be as tall as its parent.
-          //
-          // Column has various properties to control how it sizes itself and
-          // how it positions its children. Here we use mainAxisAlignment to
-          // center the children vertically; the main axis here is the vertical
-          // axis because Columns are vertical (the cross axis would be
-          // horizontal).
-          //
-          // TRY THIS: Invoke "debug painting" (choose the "Toggle Debug Paint"
-          // action in the IDE, or press "p" in the console), to see the
-          // wireframe for each widget.
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            const Text(
-              'You have pushed the button this many times:',
-            ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headlineMedium,
+    return ButtonBar(
+      children: [
+        Column(
+          children: [
+            Icon(icon, size: 20),
+            Container(
+              margin: const EdgeInsets.only(top: 5.0),
+              child: Text(
+                title,
+                style: const TextStyle(
+                  fontSize: 12,
+                ),
+              ),
             ),
           ],
         ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
+      ],
     );
   }
 }
