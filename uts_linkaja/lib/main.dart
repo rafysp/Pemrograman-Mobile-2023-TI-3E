@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:uts_linkaja/pages/history.dart';
 import 'package:uts_linkaja/pages/home.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 void main() {
   runApp(const MyApp());
@@ -36,11 +35,11 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int currentTab = 0; // to keep track of active tab index
+  int currentTab = 0;
   final List<Widget> screens = [
     Home(),
     History(),
-  ]; // to store nested tabs
+  ];
   final PageStorageBucket bucket = PageStorageBucket();
   Widget currentScreen = Home(); // Our first view in viewport
 
@@ -76,8 +75,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     minWidth: 40,
                     onPressed: () {
                       setState(() {
-                        currentScreen =
-                            Home(); // if user taps on this dashboard tab will be active
+                        currentScreen = Home();
                         currentTab = 0;
                       });
                     },
@@ -85,7 +83,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[
                         Icon(
-                          Icons.dashboard,
+                          Icons.space_dashboard_outlined,
                           color: currentTab == 0 ? Colors.red : Colors.grey,
                         ),
                         Text(
@@ -101,8 +99,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     minWidth: 40,
                     onPressed: () {
                       setState(() {
-                        currentScreen =
-                            History(); // if user taps on this dashboard tab will be active
+                        currentScreen = History();
                         currentTab = 1;
                       });
                     },

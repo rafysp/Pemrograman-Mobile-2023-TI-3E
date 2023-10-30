@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 void main() {
   runApp(const Home());
@@ -257,32 +256,32 @@ class HomePageLink extends State<HomePage> {
                     MenuWidget(
                       icon: Icon(
                         Icons.add_card,
-                        size: 35, // Adjust the size of the icon
-                        color: Colors.red, // Change the icon color
+                        size: 35,
+                        color: Colors.red,
                       ),
                       title: 'Top Up',
                     ),
                     MenuWidget(
                       icon: Icon(
                         Icons.money,
-                        size: 35, // Adjust the size of the icon
-                        color: Colors.red, // Change the icon color
+                        size: 35,
+                        color: Colors.red,
                       ),
                       title: 'Send Money',
                     ),
                     MenuWidget(
                       icon: Icon(
                         Icons.airplane_ticket,
-                        size: 35, // Adjust the size of the icon
-                        color: Colors.red, // Change the icon color
+                        size: 35,
+                        color: Colors.red,
                       ),
                       title: 'Ticket Code',
                     ),
                     MenuWidget(
                       icon: Icon(
                         Icons.more_outlined,
-                        size: 35, // Adjust the size of the icon
-                        color: Colors.red, // Change the icon color
+                        size: 35,
+                        color: Colors.red,
                       ),
                       title: 'See All',
                     ),
@@ -315,7 +314,7 @@ class HomePageLink extends State<HomePage> {
                             ),
                           ),
                           SizedBox(
-                            height: 25, // Adjust the spacing as needed
+                            height: 25,
                           ),
                           Text(
                             catNames[index],
@@ -324,8 +323,7 @@ class HomePageLink extends State<HomePage> {
                               fontWeight: FontWeight.w500,
                               color: Colors.black,
                             ),
-                            textAlign:
-                                TextAlign.center, // Align text to the center
+                            textAlign: TextAlign.center,
                           ),
                         ],
                       );
@@ -345,7 +343,7 @@ class HomePageLink extends State<HomePage> {
                           Container(
                             alignment: Alignment.center,
                             margin: const EdgeInsets.only(
-                                left: 10, right: 10, top: 30, bottom: 15),
+                                left: 10, right: 10, top: 10, bottom: 15),
                             decoration: BoxDecoration(
                               image: DecorationImage(
                                 image: itemImage[i],
@@ -358,8 +356,7 @@ class HomePageLink extends State<HomePage> {
                                       .withOpacity(0.5),
                                   spreadRadius: 1,
                                   blurRadius: 3,
-                                  offset:
-                                      const Offset(0, 2.5), // shadow position
+                                  offset: const Offset(0, 2.5),
                                 ),
                               ],
                             ),
@@ -373,6 +370,8 @@ class HomePageLink extends State<HomePage> {
                           });
                         },
                         autoPlay: true,
+                        autoPlayInterval: Duration(seconds: 2),
+                        autoPlayAnimationDuration: Duration(milliseconds: 800),
                       ),
                     ),
                   ),
@@ -419,7 +418,7 @@ class HomePageLink extends State<HomePage> {
 }
 
 class MenuWidget extends StatelessWidget {
-  final Icon icon; // Change the type to Icon
+  final Icon icon;
   final String title;
 
   MenuWidget({
@@ -433,7 +432,7 @@ class MenuWidget extends StatelessWidget {
       children: [
         Column(
           children: [
-            icon, // Use the icon directly here
+            icon,
             Container(
               margin: const EdgeInsets.only(top: 5.0),
               child: Text(
