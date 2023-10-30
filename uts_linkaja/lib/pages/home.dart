@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'history.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
@@ -8,7 +7,7 @@ void main() {
 }
 
 class Home extends StatelessWidget {
-  const Home({super.key});
+  const Home({Key? key});
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +21,7 @@ class Home extends StatelessWidget {
 }
 
 class HomePage extends StatefulWidget {
-  const HomePage({super.key, required this.title});
+  const HomePage({Key? key, required this.title});
   final String title;
 
   @override
@@ -37,6 +36,38 @@ class HomePageLink extends State<HomePage> {
         "https://cdn.linkaja.com/website/posts/June2023/1686294376-WEB%20BANNER%20794x366.jpg"),
     NetworkImage(
         "https://kecipir.com/blog/wp-content/uploads/2020/10/promo-linkaja.png"),
+  ];
+  List catNames = [
+    "Pulsa/Data",
+    "Electricity",
+    "BPJS",
+    "mgames",
+    "Cable TV\n& Internet",
+    "PDAM",
+    "Kartu Uang Elektronik",
+    "More",
+  ];
+
+  List<Color> catColors = [
+    Color.fromARGB(2, 3, 4, 100),
+    Color.fromARGB(2, 3, 4, 100),
+    Color.fromARGB(2, 3, 4, 100),
+    Color.fromARGB(2, 3, 4, 100),
+    Color.fromARGB(2, 3, 4, 100),
+    Color.fromARGB(2, 3, 4, 100),
+    Color.fromARGB(2, 3, 4, 100),
+    Color.fromARGB(2, 3, 4, 100),
+  ];
+
+  List<Icon> catIcons = [
+    Icon(Icons.phone_android, color: Colors.red, size: 40),
+    Icon(Icons.electric_bolt, color: Colors.red, size: 40),
+    Icon(Icons.health_and_safety, color: Colors.red, size: 40),
+    Icon(Icons.gamepad, color: Colors.red, size: 40),
+    Icon(Icons.cable, color: Colors.red, size: 40),
+    Icon(Icons.water_drop_outlined, color: Colors.red, size: 40),
+    Icon(Icons.add_card, color: Colors.red, size: 40),
+    Icon(Icons.more_horiz, color: Colors.red, size: 40),
   ];
   int currentIndex = 0;
 
@@ -60,14 +91,14 @@ class HomePageLink extends State<HomePage> {
                     children: [
                       Image.network(
                         'https://cdn-icons-png.flaticon.com/512/272/272535.png',
-                        width: 50,
-                        height: 50,
+                        width: 35,
+                        height: 35,
                       ),
                       SizedBox(width: 10),
                       Image.network(
                         'https://cdn.icon-icons.com/icons2/2761/PNG/512/love_heart_icon_176421.png',
-                        width: 50,
-                        height: 50,
+                        width: 35,
+                        height: 35,
                       ),
                     ],
                   ),
@@ -83,104 +114,124 @@ class HomePageLink extends State<HomePage> {
                         color: Colors.red,
                         borderRadius: BorderRadius.circular(15),
                       ),
-                      child: Row(
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.start,
                         children: [
-                          SizedBox(
-                            height: 5,
-                          ),
                           Padding(
-                            padding: const EdgeInsets.only(
-                                left: 7, right: 7, top: 25),
-                            child: Container(
-                              height: 68,
-                              width: 127,
-                              decoration: BoxDecoration(
-                                color: Colors.white,
-                                borderRadius: BorderRadius.vertical(
-                                  top: Radius.circular(7),
-                                  bottom: Radius.circular(7),
+                            padding: const EdgeInsets.only(left: 1, right: 80),
+                            child: Transform.translate(
+                              offset: const Offset(0, 15),
+                              child: Text(
+                                'Hi, M. Rafy Shah Pahlevi',
+                                textAlign: TextAlign.left,
+                                style: const TextStyle(
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.white,
                                 ),
-                              ),
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                mainAxisAlignment: MainAxisAlignment.end,
-                                children: [
-                                  Padding(
-                                    padding:
-                                        EdgeInsets.only(left: 10, bottom: 5),
-                                    child: Text(
-                                      'Your Balance',
-                                      textAlign: TextAlign.left,
-                                    ),
-                                  ),
-                                  Padding(
-                                    padding:
-                                        EdgeInsets.only(left: 10, bottom: 7),
-                                    child: Row(
-                                      children: [
-                                        Text('Rp 1.000'),
-                                        SizedBox(
-                                          width:
-                                              6.0, // jarak antara teks dan gambar
-                                        ),
-                                        Image.network(
-                                          "https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/Eo_circle_red_arrow-right.svg/2048px-Eo_circle_red_arrow-right.svg.png",
-                                          width: 14,
-                                          height: 14,
-                                        ),
-                                      ],
-                                    ),
-                                  ),
-                                ],
                               ),
                             ),
                           ),
-                          Padding(
-                            padding: const EdgeInsets.only(
-                                left: 7, right: 7, top: 25),
-                            child: Container(
-                              height: 68,
-                              width: 127,
-                              decoration: BoxDecoration(
-                                color: Colors.white,
-                                borderRadius: BorderRadius.vertical(
-                                  top: Radius.circular(7),
-                                  bottom: Radius.circular(7),
+                          Row(
+                            children: [
+                              SizedBox(height: 5),
+                              Padding(
+                                padding: const EdgeInsets.only(
+                                    left: 7, right: 7, top: 25),
+                                child: Container(
+                                  height: 68,
+                                  width: 127,
+                                  decoration: BoxDecoration(
+                                    color: Colors.white,
+                                    borderRadius: BorderRadius.vertical(
+                                      top: const Radius.circular(7),
+                                      bottom: const Radius.circular(7),
+                                    ),
+                                  ),
+                                  child: Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    mainAxisAlignment: MainAxisAlignment.end,
+                                    children: [
+                                      Padding(
+                                        padding: const EdgeInsets.only(
+                                            left: 10, bottom: 5),
+                                        child: const Text(
+                                          'Your Balance',
+                                          textAlign: TextAlign.left,
+                                        ),
+                                      ),
+                                      Padding(
+                                        padding: const EdgeInsets.only(
+                                            left: 10, bottom: 7),
+                                        child: Row(
+                                          children: [
+                                            const Text('Rp 1.000'),
+                                            SizedBox(
+                                              width:
+                                                  6.0, // jarak antara teks dan gambar
+                                            ),
+                                            Image.network(
+                                              "https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/Eo_circle_red_arrow-right.svg/2048px-Eo_circle_red_arrow-right.svg.png",
+                                              width: 14,
+                                              height: 14,
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                    ],
+                                  ),
                                 ),
                               ),
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                mainAxisAlignment: MainAxisAlignment.end,
-                                children: [
-                                  Padding(
-                                    padding:
-                                        EdgeInsets.only(left: 10, bottom: 5),
-                                    child: Text(
-                                      'Bonus Balance',
-                                      textAlign: TextAlign.left,
+                              Padding(
+                                padding: const EdgeInsets.only(
+                                    left: 7, right: 7, top: 25),
+                                child: Container(
+                                  height: 68,
+                                  width: 127,
+                                  decoration: BoxDecoration(
+                                    color: Colors.white,
+                                    borderRadius: BorderRadius.vertical(
+                                      top: const Radius.circular(7),
+                                      bottom: const Radius.circular(7),
                                     ),
                                   ),
-                                  Padding(
-                                    padding:
-                                        EdgeInsets.only(left: 10, bottom: 7),
-                                    child: Row(
-                                      children: [
-                                        Text('0'),
-                                        SizedBox(
-                                          width:
-                                              6.0, // jarak antara teks dan gambar
+                                  child: Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    mainAxisAlignment: MainAxisAlignment.end,
+                                    children: [
+                                      Padding(
+                                        padding: const EdgeInsets.only(
+                                            left: 10, bottom: 5),
+                                        child: const Text(
+                                          'Bonus Balance',
+                                          textAlign: TextAlign.left,
                                         ),
-                                        Image.network(
-                                          "https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/Eo_circle_red_arrow-right.svg/2048px-Eo_circle_red_arrow-right.svg.png",
-                                          width: 14,
-                                          height: 14,
+                                      ),
+                                      Padding(
+                                        padding: const EdgeInsets.only(
+                                            left: 10, bottom: 7),
+                                        child: Row(
+                                          children: [
+                                            const Text('0'),
+                                            SizedBox(
+                                              width:
+                                                  6.0, // jarak antara teks dan gambar
+                                            ),
+                                            Image.network(
+                                              "https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/Eo_circle_red_arrow-right.svg/2048px-Eo_circle_red_arrow-right.svg.png",
+                                              width: 14,
+                                              height: 14,
+                                            ),
+                                          ],
                                         ),
-                                      ],
-                                    ),
+                                      ),
+                                    ],
                                   ),
-                                ],
+                                ),
                               ),
-                            ),
+                            ],
                           ),
                         ],
                       ),
@@ -191,7 +242,7 @@ class HomePageLink extends State<HomePage> {
               Container(
                 margin:
                     const EdgeInsets.symmetric(vertical: 20, horizontal: 11),
-                padding: const EdgeInsets.all(5),
+                padding: const EdgeInsets.only(top: 1, right: 5, left: 5),
                 decoration: BoxDecoration(
                   color: Colors.white,
                   border: Border.all(
@@ -200,87 +251,85 @@ class HomePageLink extends State<HomePage> {
                   ),
                   borderRadius: BorderRadius.circular(10.0),
                 ),
-                child: const Row(
+                child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
                     MenuWidget(
-                      icon: FontAwesomeIcons.solidCreditCard,
+                      icon: Icon(
+                        Icons.add_card,
+                        size: 35, // Adjust the size of the icon
+                        color: Colors.red, // Change the icon color
+                      ),
                       title: 'Top Up',
                     ),
                     MenuWidget(
-                      icon: FontAwesomeIcons.moneyBillTransfer,
+                      icon: Icon(
+                        Icons.money,
+                        size: 35, // Adjust the size of the icon
+                        color: Colors.red, // Change the icon color
+                      ),
                       title: 'Send Money',
                     ),
                     MenuWidget(
-                      icon: FontAwesomeIcons.moneyBill1Wave,
+                      icon: Icon(
+                        Icons.airplane_ticket,
+                        size: 35, // Adjust the size of the icon
+                        color: Colors.red, // Change the icon color
+                      ),
                       title: 'Ticket Code',
                     ),
                     MenuWidget(
-                      icon: FontAwesomeIcons.solidCommentDots,
+                      icon: Icon(
+                        Icons.more_outlined,
+                        size: 35, // Adjust the size of the icon
+                        color: Colors.red, // Change the icon color
+                      ),
                       title: 'See All',
                     ),
                   ],
                 ),
               ),
-              Container(
-                margin: EdgeInsets.only(top: 1), //
+              SingleChildScrollView(
                 child: Padding(
-                  padding: EdgeInsets.only(left: 10, right: 10, top: 1),
-                  child: SizedBox(
-                    height: 157,
-                    child: GridView.count(
+                  padding: const EdgeInsets.only(top: 1),
+                  child: GridView.builder(
+                    itemCount: catNames.length,
+                    shrinkWrap: true,
+                    physics: NeverScrollableScrollPhysics(),
+                    gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                       crossAxisCount: 4,
-                      children: [
-                        Column(
-                          children: [
-                            Icon(FontAwesomeIcons.star),
-                            Text("Icon 1"),
-                          ],
-                        ),
-                        Column(
-                          children: [
-                            Icon(FontAwesomeIcons.heart),
-                            Text("Icon 2"),
-                          ],
-                        ),
-                        Column(
-                          children: [
-                            Icon(FontAwesomeIcons.circle),
-                            Text("Icon 3"),
-                          ],
-                        ),
-                        Column(
-                          children: [
-                            Icon(FontAwesomeIcons.circle),
-                            Text("Icon 3"),
-                          ],
-                        ),
-                        Column(
-                          children: [
-                            Icon(FontAwesomeIcons.circle),
-                            Text("Icon 3"),
-                          ],
-                        ),
-                        Column(
-                          children: [
-                            Icon(FontAwesomeIcons.circle),
-                            Text("Icon 3"),
-                          ],
-                        ),
-                        Column(
-                          children: [
-                            Icon(FontAwesomeIcons.circle),
-                            Text("Icon 3"),
-                          ],
-                        ),
-                        Column(
-                          children: [
-                            Icon(FontAwesomeIcons.circle),
-                            Text("More"),
-                          ],
-                        ),
-                      ],
+                      childAspectRatio: 0.8,
                     ),
+                    itemBuilder: (context, index) {
+                      return Column(
+                        children: [
+                          Container(
+                            height: 19,
+                            width: 39,
+                            decoration: BoxDecoration(
+                              color: catColors[index],
+                              shape: BoxShape.circle,
+                            ),
+                            child: Center(
+                              child: catIcons[index],
+                            ),
+                          ),
+                          SizedBox(
+                            height: 25, // Adjust the spacing as needed
+                          ),
+                          Text(
+                            catNames[index],
+                            style: TextStyle(
+                              fontSize: 15,
+                              fontWeight: FontWeight.w500,
+                              color: Colors.black,
+                            ),
+                            textAlign:
+                                TextAlign.center, // Align text to the center
+                          ),
+                        ],
+                      );
+                    },
                   ),
                 ),
               ),
@@ -295,7 +344,7 @@ class HomePageLink extends State<HomePage> {
                         for (int i = 0; i < itemImage.length; i++)
                           Container(
                             alignment: Alignment.center,
-                            margin: EdgeInsets.only(
+                            margin: const EdgeInsets.only(
                                 left: 10, right: 10, top: 30, bottom: 15),
                             decoration: BoxDecoration(
                               image: DecorationImage(
@@ -309,24 +358,26 @@ class HomePageLink extends State<HomePage> {
                                       .withOpacity(0.5),
                                   spreadRadius: 1,
                                   blurRadius: 3,
-                                  offset: Offset(0, 2.5), // shadow position
+                                  offset:
+                                      const Offset(0, 2.5), // shadow position
                                 ),
                               ],
                             ),
-                          )
+                          ),
                       ],
                       options: CarouselOptions(
-                          onPageChanged: (index, reason) {
-                            setState(() {
-                              print(reason.toString());
-                              currentIndex = index;
-                            });
-                          },
-                          autoPlay: false),
+                        onPageChanged: (index, reason) {
+                          setState(() {
+                            print(reason.toString());
+                            currentIndex = index;
+                          });
+                        },
+                        autoPlay: true,
+                      ),
                     ),
                   ),
                   Padding(
-                    padding: const EdgeInsets.only(left: 125, bottom: 50),
+                    padding: const EdgeInsets.only(left: 20, bottom: 50),
                     child: Align(
                       child: Row(
                         children: [
@@ -352,11 +403,11 @@ class HomePageLink extends State<HomePage> {
                                   ],
                                 ),
                               ),
-                            )
+                            ),
                         ],
                       ),
                     ),
-                  )
+                  ),
                 ],
               ),
             ],
@@ -368,10 +419,10 @@ class HomePageLink extends State<HomePage> {
 }
 
 class MenuWidget extends StatelessWidget {
-  final IconData icon;
+  final Icon icon; // Change the type to Icon
   final String title;
-  const MenuWidget({
-    super.key,
+
+  MenuWidget({
     required this.icon,
     required this.title,
   });
@@ -382,7 +433,7 @@ class MenuWidget extends StatelessWidget {
       children: [
         Column(
           children: [
-            Icon(icon, size: 20),
+            icon, // Use the icon directly here
             Container(
               margin: const EdgeInsets.only(top: 5.0),
               child: Text(

@@ -110,7 +110,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[
                         Icon(
-                          Icons.chat,
+                          Icons.history_outlined,
                           color: currentTab == 1 ? Colors.red : Colors.grey,
                         ),
                         Text(
